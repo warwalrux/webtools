@@ -42,7 +42,7 @@ window.onload = function () {
       function startTimer () {
               seconds++;
               // Fudge the constant below for testing (# of seconds in minute)
-              if (seconds > 10) {
+              if (seconds > 59) {
                         minutes++;
                         appendMinutes.innerHTML = minutes.toLocaleString('en-US', {minimumIntegerDigits: 2});
                         seconds = 0;
