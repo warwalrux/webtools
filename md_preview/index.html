@@ -1,18 +1,17 @@
 <html>
     <head>
-        <link rel="stylesheet" href="timer.scss">
-        <script src="timer.js"></script> 
+        <link rel="stylesheet" href="../webtools.scss">
+        <script src="mdprev.js"></script> 
     </head>
     <body>
         <div style="text-align: center;">
             <span style="text-align:center; width:100%;">
                 <h1>Markdown Generator</h1> 
-                <button id="button-reset">Generate</button>
+                <button id="button-generate">Generate</button>
                 <button id="button-reset">Reset</button>
             </span><br> 
-            <textarea id="rawmd" style="width:48%; height:100%; display:inline-block;">Markdown goes here.</textarea>
-            <textarea id="output" style="width:48%; height:100%; display:inline-block;">Generated output</textarea>
-            
+            <textarea id="rawmd" style="width:48%; height:100%; display:inline-block;"></textarea>
+            <div id="output" style="width:48%; height:100%; display:inline-block; border:1px solid black;"></div>
         </div>
     </body>
 </html>
