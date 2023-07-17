@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="stylesheet" href="/webtools.scss">
+        <link rel="stylesheet" href="../webtools.scss">
         <script src="timer.js"></script> 
     </head>
     <body>
@@ -13,8 +13,9 @@
                 <option value="5:00,6:00,7:00">5-7 minute speech</option>
                 <option value="8:00,9:00,10:00">8-10 minute speech</option>
                 <option value="2:00,2:30,3:00">Evaluation</option>
-            </select> 
-            <p><span id="minutes" style="font-size: 2em;">00</span><span style="font-size: 2em;">:</span><span id="seconds">00</span></p>
+            </select>
+            <p><span>Green: </span><span id="greentime">00:00</span> <span>Yellow:</span> <span id="yellowtime">00:00</span> <span>Red:</span> <span id="redtime">00:00</span></p>
+            <p><span id="minutes" style="font-size: 2em;">00</span><span style="font-size: 2em;">:</span><span id="seconds" style="font-size: 2em;">00</span></p>
             <button id="button-start">Start</button>
             <button id="button-stop">Stop</button>
             <button id="button-reset">Reset</button>

@@ -2,9 +2,11 @@ window.onload = function () {
       
       var seconds = 00; 
       var minutes = 00; 
-      var appendSeconds = document.getElementById("seconds")
-      var appendMinutes = document.getElementById("minutes")
-      var appendMsg = document.getElementById("msg");
+      var appendSeconds = document.getElementById("seconds");
+      var appendMinutes = document.getElementById("minutes");
+      var appendRed = document.getElementById("redtime");
+      var appendYlw = document.getElementById("yellowtime");
+      var appendGrn = document.getElementById("greentime");
       var duration = document.getElementById("duration").value;
       var buttonStart = document.getElementById('button-start');
       var buttonStop = document.getElementById('button-stop');
@@ -14,10 +16,14 @@ window.onload = function () {
       var green_threshold;
       var yellow_threshold;
 
+    
       buttonStart.onclick = function() {
               green_threshold = duration.split(",")[0];
               yellow_threshold = duration.split(",")[1];
               red_threshold = duration.split(",")[2];
+              appendRed.innerHTML = red_threshold;
+              appendYlw.innerHTML = yellow_threshold;
+              appendGrn.innerHTML = green_threshold;
               clearInterval(Interval);
               Interval = setInterval(startTimer, 1000);
             }
@@ -28,13 +34,7 @@ window.onload = function () {
       
 
       buttonReset.onclick = function() {
-/*              clearInterval(Interval);
-              document.body.style.background = "#FFFFFF";
-              seconds = 00;
-              minutes = 00;
-              appendSeconds.innerHTML = "0" + seconds;
-              appendMinutes.innerHTML = "0" + minutes;*/
-              location.reload()
+              location.reload();
             }
       
        
@@ -48,14 +48,14 @@ window.onload = function () {
                         seconds = 0;
                       }
               appendSeconds.innerHTML = seconds.toLocaleString('en-US', {minimumIntegerDigits: 2});
-
-              if (minutes + ":" + seconds.toLocaleString('en-US', {minimumIntegerDigits: 2}) == green_threshold){
+              current_time = minutes + ":" + seconds.toLocaleString('en-US', {minimumIntegerDigits: 2}) 
+              if (current_time == green_threshold){
                         document.body.style.background = "#00FF00";
                       }
-              if (minutes + ":" + seconds.toLocaleString('en-US', {minimumIntegerDigits: 2}) == yellow_threshold){
+              if (current_time == yellow_threshold){
                         document.body.style.background = "#FFFF00";
                       }
-              if (minutes + ":" + seconds.toLocaleString('en-US', {minimumIntegerDigits: 2}) == red_threshold){
+              if (current_time == red_threshold){
                         document.body.style.background = "#FF0000";
                       }
             }
