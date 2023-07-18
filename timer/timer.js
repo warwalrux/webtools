@@ -36,13 +36,14 @@ window.onload = function () {
       buttonReset.onclick = function() {
             //  location.reload();
               
+              document.body.style.background = "#000000";
               appendRed.innerHTML = "0:00";
               appendYlw.innerHTML = "0:00";
               appendGrn.innerHTML = "0:00";
-              seconds = 00;
+              seconds = 0;
               appendSeconds.innerHTML = seconds.toLocaleString('en-US', {minimumIntegerDigits: 2});
-              minutes = 00;
-              appendMinutes.innerHTML = minutestoLocaleString('en-US', {minimumIntegerDigits: 2});
+              minutes = 0;
+              appendMinutes.innerHTML = minutes.toLocaleString('en-US', {minimumIntegerDigits: 2});
               clearInterval(Interval);
             }
       
