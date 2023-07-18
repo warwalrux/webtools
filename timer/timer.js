@@ -7,7 +7,6 @@ window.onload = function () {
       var appendRed = document.getElementById("redtime");
       var appendYlw = document.getElementById("yellowtime");
       var appendGrn = document.getElementById("greentime");
-      var duration = document.getElementById("duration").value;
       var buttonStart = document.getElementById('button-start');
       var buttonStop = document.getElementById('button-stop');
       var buttonReset = document.getElementById('button-reset');
@@ -18,6 +17,7 @@ window.onload = function () {
 
     
       buttonStart.onclick = function() {
+              duration = document.getElementById("duration").value;
               green_threshold = duration.split(",")[0];
               yellow_threshold = duration.split(",")[1];
               red_threshold = duration.split(",")[2];
