@@ -10,7 +10,7 @@ window.onload = function () {
       var buttonStart = document.getElementById('button-start');
       var buttonStop = document.getElementById('button-stop');
       var buttonReset = document.getElementById('button-reset');
-      var Interval ;
+      var Interval;
       var red_threshold;
       var green_threshold;
       var yellow_threshold;
@@ -34,7 +34,16 @@ window.onload = function () {
       
 
       buttonReset.onclick = function() {
-              location.reload();
+            //  location.reload();
+              
+              appendRed.innerHTML = "0:00";
+              appendYlw.innerHTML = "0:00";
+              appendGrn.innerHTML = "0:00";
+              seconds = 00;
+              appendSeconds.innerHTML = seconds.toLocaleString('en-US', {minimumIntegerDigits: 2});
+              minutes = 00;
+              appendMinutes.innerHTML = minutestoLocaleString('en-US', {minimumIntegerDigits: 2});
+              clearInterval(Interval);
             }
       
        
