@@ -36,7 +36,7 @@ window.onload = function () {
       buttonReset.onclick = function() {
             //  location.reload();
               
-              document.body.style.background = "#000000";
+              document.body.style.background = "#FFFFFF";
               appendRed.innerHTML = "0:00";
               appendYlw.innerHTML = "0:00";
               appendGrn.innerHTML = "0:00";
