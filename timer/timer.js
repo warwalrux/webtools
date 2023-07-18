@@ -10,6 +10,7 @@ window.onload = function () {
       var buttonStart = document.getElementById('button-start');
       var buttonStop = document.getElementById('button-stop');
       var buttonReset = document.getElementById('button-reset');
+      var appendResults = document.getElementById('table-results');
       var Interval;
       var red_threshold;
       var green_threshold;

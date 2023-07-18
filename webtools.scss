@@ -38,6 +38,10 @@ h1, h2, h3 {
     text-transform: uppercase;
     }
 
+table, th, tr, td {
+    border: 1px solid;
+    border-collapse: collapse;
+    }
 #minutes, #seconds {
     font-size:2em;
 }
