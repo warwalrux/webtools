@@ -8,48 +8,55 @@ window.onload = function () {
       var appendYlw = document.getElementById("yellowtime");
       var appendGrn = document.getElementById("greentime");
       var buttonStart = document.getElementById('button-start');
-      var buttonStop = document.getElementById('button-stop');
       var buttonReset = document.getElementById('button-reset');
+      var buttonRecord = document.getElementById('button-record');
       var appendResults = document.getElementById('table-results');
       var Interval;
       var red_threshold;
       var green_threshold;
       var yellow_threshold;
+      var is_running = 1;
+      var speaker_number = 1;
 
-    
       buttonStart.onclick = function() {
-              duration = document.getElementById("duration").value;
-              green_threshold = duration.split(",")[0];
-              yellow_threshold = duration.split(",")[1];
-              red_threshold = duration.split(",")[2];
-              appendRed.innerHTML = red_threshold;
-              appendYlw.innerHTML = yellow_threshold;
-              appendGrn.innerHTML = green_threshold;
-              clearInterval(Interval);
-              Interval = setInterval(startTimer, 1000);
+              if (is_running == 1) {
+                  is_running = 0;
+                  buttonStart.innerHTML = "Pause";
+                  duration = document.getElementById("duration").value;
+                  green_threshold = duration.split(",")[0];
+                  yellow_threshold = duration.split(",")[1];
+                  red_threshold = duration.split(",")[2];
+                  appendRed.innerHTML = red_threshold;
+                  appendYlw.innerHTML = yellow_threshold;
+                  appendGrn.innerHTML = green_threshold;
+                  clearInterval(Interval);
+                  Interval = setInterval(startTimer, 1000);
+              } else {
+                  is_running = 1;
+                  buttonStart.innerHTML = "Start";
+                  clearInterval(Interval);
+              }
             }
       
-      buttonStop.onclick = function() {
-            clearInterval(Interval);
+      buttonRecord.onclick = function() {
+            appendResults.innerHTML += `<tr><td>${speaker_number}</td><td>${document.getElementById("duration").value}</td><td>${minutes}:${seconds.toLocaleString('en-us', {minimumIntegerDigits: 2})}</td></tr>`;
             }
-      
+
 
       buttonReset.onclick = function() {
-            //  location.reload();
-              
-              document.body.style.background = "#FFFFFF";
-              appendRed.innerHTML = "0:00";
-              appendYlw.innerHTML = "0:00";
-              appendGrn.innerHTML = "0:00";
-              seconds = 0;
-              appendSeconds.innerHTML = seconds.toLocaleString('en-US', {minimumIntegerDigits: 2});
-              minutes = 0;
-              appendMinutes.innerHTML = minutes.toLocaleString('en-US', {minimumIntegerDigits: 2});
-              clearInterval(Interval);
+            document.body.style.background = "#FFFFFF";
+            speaker_number += 1;
+            buttonStart.innerHTML = "Start";
+            appendRed.innerHTML = "0:00";
+            appendYlw.innerHTML = "0:00";
+            appendGrn.innerHTML = "0:00";
+            seconds = 0;
+            appendSeconds.innerHTML = seconds.toLocaleString('en-US', {minimumIntegerDigits: 2});
+            minutes = 0;
+            appendMinutes.innerHTML = minutes.toLocaleString('en-US', {minimumIntegerDigits: 2});
+            clearInterval(Interval);
             }
-      
-       
-      
+
       function startTimer () {
               seconds++;
               // Fudge the constant below for testing (# of seconds in minute)
