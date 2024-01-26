@@ -9,14 +9,11 @@ window.onload = function () {
       var appendGrn = document.getElementById("greentime");
       var buttonStart = document.getElementById('button-start');
       var buttonReset = document.getElementById('button-reset');
-      var buttonRecord = document.getElementById('button-record');
-      var appendResults = document.getElementById('table-results');
       var Interval;
       var red_threshold;
       var green_threshold;
       var yellow_threshold;
       var is_running = 1;
-      var speaker_number = 1;
 
       buttonStart.onclick = function() {
               if (is_running == 1) {
@@ -37,15 +34,9 @@ window.onload = function () {
                   clearInterval(Interval);
               }
             }
-      
-      buttonRecord.onclick = function() {
-            appendResults.innerHTML += `<tr><td>${speaker_number}</td><td>${document.getElementById("duration").value}</td><td>${minutes}:${seconds.toLocaleString('en-us', {minimumIntegerDigits: 2})}</td></tr>`;
-            }
-
 
       buttonReset.onclick = function() {
             document.body.style.background = "#FFFFFF";
-            speaker_number += 1;
             buttonStart.innerHTML = "Start";
             appendRed.innerHTML = "0:00";
             appendYlw.innerHTML = "0:00";
